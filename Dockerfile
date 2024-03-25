@@ -4,8 +4,10 @@ WORKDIR /grok
 
 RUN pip install --upgrade pip
 
+RUN apt-get update && apt-get install screen -y
+
 COPY . /grok
 
 RUN pip install --no-cache-dir -r /grok/requirements.txt
 
-CMD ["python3", "download.py"]
+CMD ["screen", "-S", "donlot", "-d", "-m", "python3", "download.py"]
