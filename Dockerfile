@@ -10,4 +10,4 @@ COPY . /grok
 
 RUN pip install --no-cache-dir -r /grok/requirements.txt
 
-CMD ["screen", "-S", "donlot", "-d", "-m", "python3", "download.py"]
+ENTRYPOINT ["/bin/sh", "entrypoint.sh"]
